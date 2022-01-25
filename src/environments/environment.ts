@@ -3,7 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  algorandSv: 'https://testnet-algorand.api.purestake.io/ps2',
+  indexerSv: 'https://testnet-algorand.api.purestake.io/idx2',
+  algorandPort: '',
+  token: 'if9ITfbz7f2OqCqsH1nB7mnYD29kP3m6UFMoPsm8',
+  ledger: 'TestNet',
 };
 
 /*

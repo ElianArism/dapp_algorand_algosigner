@@ -1,0 +1,97 @@
+<div
+  class="container-fluid h-100 d-flex flex-column justify-content-evenly align-items-center"
+>
+  <!-- Title -->
+  <h1 class="text-center">Make transactions</h1>
+  <!-- Form -->
+  <form
+    class="d-flex mx-auto flex-column w-50 justify-content-evenly align-items-center"
+    [formGroup]="transactionForm"
+    (submit)="realizeTransaction()"
+  >
+    <!-- Issuer Wallet -->
+    <div class="form-group w-100">
+      <div class="form-label">Your Wallet</div>
+      <input
+        class="form-control"
+        formControlName="from"
+        type="text"
+        placeholder="put your wallet"
+      />
+    </div>
+    <!-- Destination Wallet -->
+    <div class="form-group my-2 w-100">
+      <div class="form-label">Destination Wallet</div>
+      <input
+        class="form-control"
+        type="text"
+        formControlName="to"
+        placeholder="put your destination wallet"
+      />
+    </div>
+    <!-- Quantity -->
+    <div class="form-group my-2 w-100">
+      <div class="form-label">Quantity (algos)</div>
+      <input
+        class="form-control"
+        formControlName="amount"
+        type="text"
+        placeholder="put your quantity"
+      />
+    </div>
+    <!-- Notes -->
+    <div class="form-group my-2 w-100">
+      <div class="form-label">Notes</div>
+      <input
+        class="form-control"
+        formControlName="note"
+        type="text"
+        placeholder="notes"
+        aria-describedby="optfield"
+      />
+      <small id="optfield" class="text-form text-primary">
+        Optional field
+      </small>
+    </div>
+    <!-- Submit Btn -->
+    <button class="btn mx-auto btn-primary" type="submit">Send</button>
+  </form>
+  <!-- Alert -->
+  <div
+    *ngIf="txWasSent"
+    [ngClass]="{
+      'alert alert-primary': txSuccess,
+      'alert alert-danger': !txSuccess
+    }"
+  >
+    {{ message }}
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+      (click)="clearAlert()"
+    ></button>
+  </div>
+  <!-- Check Transaction Btn -->
+  <button
+    class="btn btn-primary mx-auto"
+    [disabled]="!txEnabledToCheck"
+    (click)="checkTransactionStatus()"
+  >
+    Check transaction status
+  </button>
+  <!-- Hide Transaction Btn -->
+  <div class="tx-status" *ngIf="transaction">
+    <button class="btn btn-warning mx-auto" (click)="clearTxStatus()">
+      Hide transaction status
+    </button>
+    <!-- Transaction Container -->
+    <div class="mx-auto w-75">
+      <p class="text-center">Transaction status</p>
+      <div class="mx-auto w-50">
+        {{ transaction }}
+      </div>
+    </div>
+  </div>
+</div>
