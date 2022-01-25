@@ -18,7 +18,7 @@ With AlgoSigner, it’s easier than ever to integrate ALGOs into your DeFi appli
 
 ### What you can do
 
-- Connect to your wallet (TestNet)
-- See your wallet addresss
-- See the custom params that AlgoSigner sends in every transaction
-- Make transactions to every wallet in the TestNet
+- Connect a wallet (TestNet)
+- View your wallet address
+- See the custom params that AlgoSigner sends in each transaction
+- Transact with every wallet on Algorand TestNet
